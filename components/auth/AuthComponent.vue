@@ -1,4 +1,4 @@
-<script>
+<script lang="ts" setup>
 import { ref, computed, watch } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { CircleIcon, Loader2 } from "lucide-vue-next";
@@ -6,88 +6,68 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export default {
-  name: "Login",
-  props: {
-    mode: {
-      type: String,
-      default: "signin",
-      validator: (value) => ["signin", "signup"].includes(value),
-    },
-  },
-  setup(props) {
-    const route = useRoute();
-    const router = useRouter();
-    const email = ref("");
-    const password = ref("");
-    const redirect = computed(() => route.query.redirect || "");
-    const priceId = computed(() => route.query.priceId || "");
-    const inviteId = computed(() => route.query.inviteId || "");
-    const pending = ref(false);
-    const state = ref({
-      error: "",
-    });
+const props = defineProps<{
+  mode: "signin" | "signup";
+}>();
 
-    const formAction = async () => {
-      try {
-        pending.value = true;
-        let res;
-        if (props.mode === "signin") {
-          res = await $fetch("/api/auth/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email.value,
-              password: password.value,
-            }),
-          });
-        } else {
-          res = await $fetch("/api/auth/signup", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              email: email.value,
-              password: password.value,
-              redirect: redirect.value,
-              priceId: priceId.value,
-              inviteId: inviteId.value,
-            }),
-          });
-        }
-        console.log("res", res);
-        
-      } catch (error) {
-        state.error = error.message;
-      } finally {
-        pending.value = false;
-      }
-    };
+const route = useRoute();
+const router = useRouter();
+const email = ref("");
+const password = ref("");
+const redirect = computed(() => route.query.redirect || "");
+const priceId = computed(() => route.query.priceId || "");
+const inviteId = computed(() => route.query.inviteId || "");
+const pending = ref(false);
+const state = ref({
+  error: "",
+});
 
-    watch(route.query, (newQuery) => {
-      // Handle query parameter changes if needed
-    });
+const formAction = async () => {
+  try {
+    pending.value = true;
+    let res;
+    if (props.mode === "signin") {
+      res = await $fetch("/api/auth/sign-in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email.value,
+          password: password.value,
+        }),
+      });
+    } else {
+      res = await $fetch("/api/auth/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email.value,
+          password: password.value,
+          redirect: redirect.value,
+          priceId: priceId.value,
+          inviteId: inviteId.value,
+        }),
+      });
+    }
+    console.log("res", res);
+    
+  } catch (error) {
 
-    return {
-      email,
-      password,
-      redirect,
-      priceId,
-      inviteId,
-      state,
-      formAction,
-      pending,
-      CircleIcon,
-      Loader2,
-      Button, 
-      Input,
-      Label
-    };
-  },
+    console.log("error", error);
+    
+  } finally {
+    pending.value = false;
+  }
 };
+
+// watch(route.query, (newQuery) => {
+//   // Handle query parameter changes if needed
+//   console.log(newQuery);
+  
+// });
 </script>
 
 <template>

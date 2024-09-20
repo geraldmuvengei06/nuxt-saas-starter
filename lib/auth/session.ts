@@ -1,7 +1,10 @@
-import { compare, hash } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
+const { compare, hash } = bcrypt;
 import { SignJWT, jwtVerify } from 'jose';
 // import { cookies } from 'next/headers';
-import { NewUser } from '@/lib/db/schema';
+
+import { activityLogs, ActivityType, type NewUser, type NewActivityLog } from '@/lib/db/schema';
+import { db } from '../db/drizzle';
 
 const key = new TextEncoder().encode(process.env.AUTH_SECRET);
 const SALT_ROUNDS = 10;
@@ -57,4 +60,22 @@ export async function setSession(user: NewUser) {
     secure: true,
     sameSite: 'lax',
   });
+}
+
+export async function logActivity(
+  teamId: number | null | undefined,
+  userId: number,
+  type: ActivityType,
+  ipAddress?: string
+) {
+  if (teamId === null || teamId === undefined) {
+      return;
+  }
+  const newActivity: NewActivityLog = {
+      teamId,
+      userId,
+      action: type,
+      ipAddress: ipAddress || '',
+  };
+  await db.insert(activityLogs).values(newActivity);
 }
