@@ -3,6 +3,9 @@
 > [!IMPORTANT]  
 > This repo is a work-in-progress. Please open an issue if you see something wrong!
 
+> This repo is the Nuxt.js version of [https://next-saas-start.vercel.app/](https://next-saas-start.vercel.app/).
+> Basically a clone.
+
 This is a starter template for building a SaaS application using **Nuxt.js** with support for authentication, Stripe integration for payments, and a dashboard for logged-in users.
 
 **Demo: [https://nuxt-saas-start.vercel.app/](https://nuxt-saas-start.vercel.app/)**
@@ -36,7 +39,7 @@ Fun fact: the majority of the UI for this application was built with [v0](https:
 
 ## Tech Stack
 
-- **Framework**: [Nuxt.js](https://nuxt.com/)
+- **Framework**: [Nuxt.js](https://nuxt.com/) [Vue.js](https://vuejs.org/)
 - **Database**: [Postgres](https://www.postgresql.org/)
 - **ORM**: [Drizzle](https://orm.drizzle.team/)
 - **Payments**: [Stripe](https://stripe.com/)
