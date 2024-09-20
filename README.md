@@ -2,7 +2,6 @@
 
 > [!IMPORTANT]  
 > This repo is a work-in-progress. Please open an issue if you see something wrong!
-
 > This repo is the Nuxt.js version of [https://next-saas-start.vercel.app/](https://next-saas-start.vercel.app/).
 > Basically a clone.
 
