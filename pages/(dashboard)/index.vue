@@ -103,7 +103,7 @@
           </div>
           <div class="mt-8 lg:mt-0 flex justify-center lg:justify-end">
             <a
-              href="https://github.com/leerob/next-saas-starter"
+              href="https://github.com/geraldmuvengei06/next-saas-starter"
               target="_blank"
             >
               <Button class="bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full text-xl px-12 py-6 inline-flex items-center justify-center">

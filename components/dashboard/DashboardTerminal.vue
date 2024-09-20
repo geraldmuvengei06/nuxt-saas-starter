@@ -9,7 +9,7 @@ export default {
     const terminalStep = ref(0);
     const copied = ref(false);
     const terminalSteps = [
-      'git clone https://github.com/leerob/next-saas-starter',
+      'git clone https://github.com/geraldmuvengei06/next-saas-starter',
       'pnpm install',
       'pnpm db:setup',
       'pnpm db:migrate',
