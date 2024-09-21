@@ -4,12 +4,16 @@ import { z } from 'zod';
 export const signInSchema = z.object({
     email: z.string().email().min(3).max(255),
     password: z.string().min(8).max(100),
+    redirectTo: z.string().optional(),
+    priceId: z.string().optional(),
 });
 
 export const signUpSchema = z.object({
     email: z.string().email(),
     password: z.string().min(8),
     inviteId: z.string().optional(),
+    redirectTo: z.string().optional(),
+    priceId: z.string().optional(),
 });
 
 export const updatePasswordSchema = z

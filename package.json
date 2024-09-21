@@ -7,19 +7,22 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "db:setup": "npx tsx lib/db/setup.ts",
+    "db:seed": "npx tsx lib/db/seed.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "npx tsx lib/db/migrate.ts",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.0.1",
     "@neondatabase/serverless": "^0.9.5",
-    "@types/bcryptjs": "^2.4.6",
+    "@nuxt/image": "^1.8.0",
+    "@nuxtjs/color-mode": "^3.5.1",
+    "@vee-validate/zod": "^4.13.2",
     "@vueuse/core": "^11.1.0",
-    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.33.0",
-    "jose": "^5.9.2",
     "lucide-vue-next": "^0.441.0",
     "nuxt": "^3.13.0",
     "postgres": "^3.4.4",
@@ -28,11 +31,13 @@
     "stripe": "^16.12.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.13.2",
     "vue": "latest",
     "vue-router": "latest",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.0.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "drizzle-kit": "^0.24.2",
     "typescript": "^5.6.2"
