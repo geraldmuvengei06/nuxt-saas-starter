@@ -4,8 +4,8 @@
 </script>
 
 <template>
-  <div :class="`bg-white dark:bg-gray-950 text-black dark:text-white`">
-    <main className="min-h-[100dvh] bg-gray-50">
+  <div :class="`bg-white dark:bg-gray-950 text-black dark:text-white min-h-[100dvh]`">
+    <main className="">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
