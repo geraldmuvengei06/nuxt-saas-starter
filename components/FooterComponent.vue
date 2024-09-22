@@ -5,8 +5,7 @@
           <!-- Logo and Company Info -->
           <div class="mb-8 md:mb-0">
             <div class="flex items-center mb-4">
-              <BookOpen  class="w-8 h-8 text-indigo-500 mr-2" />
-              <h2 class="text-2xl font-bold text-white">nuxt-starter</h2>
+              <LogoLight />
             </div>
             <h3 class="text-xl font-semibold mb-2">Nuxt SaaS Starter</h3>
             <p class="mb-4">Hit the Ground Tunning 🚀 Launch Your Startup Faster</p>

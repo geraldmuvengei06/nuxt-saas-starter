@@ -21,13 +21,15 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
     <nav
       class="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6"
     >
-      <a
+      <!-- <a
         href="#"
         class="flex items-center gap-2 text-lg font-semibold md:text-base"
       >
         <BookOpen class="h-6 w-6" />
         <span class="sr-only">Acme Inc</span>
-      </a>
+      </a> -->
+
+      <LogoLight />
 
       <NuxtLink
         to="/#pricing"

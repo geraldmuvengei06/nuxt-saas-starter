@@ -43,7 +43,7 @@
       </p>
 
       <div class="flex flex-row gap-4 my-4">
-        <Button size="lg" class="bg-violet-500">Get Started </Button>
+        <Button size="lg">Get Started </Button>
       </div>
     </div>
     <div class="col-span-12 sm:col-span-6">
